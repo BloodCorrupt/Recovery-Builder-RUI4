@@ -32,7 +32,9 @@
 - ADB Sideload
 - Terminal/Console
 - External Storage (SD and OTG)
-##Bugs
+
+
+## Bugs
 - Incorrect Battery Percentage After Decryption
 - You Tell Me.
 Telegram Community: https://t.me/Realme8Discussion
