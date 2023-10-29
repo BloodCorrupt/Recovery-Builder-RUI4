@@ -16,7 +16,7 @@
 - Click Run workflow, and wait 'til done.
 
 ## Working Feature
-- Decryption Date
+- Decryption Data (Thanks [Howwof](https://t.me/@HowWof))
 - Vibration/Haptic 
 - Flashing .img/zip
 - ADB Sideload
@@ -32,6 +32,7 @@
 - Telegram Community: https://t.me/Realme8Discussion
 
 ## Credits
+- Thanks [BloodCorruption](https://t.me/@BloodCorruption)
 - https://t.me/cd_Crypton
 - https://github.com/TeamWin
 - https://github.com/minimal-manifest-twrp
