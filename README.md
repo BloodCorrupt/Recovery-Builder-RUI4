@@ -37,7 +37,9 @@
 ## Bugs
 - Incorrect Battery Percentage After Decryption
 - You Tell Me.
-Telegram Community: https://t.me/Realme8Discussion
+
+## Device Support Group 
+- Telegram Community: https://t.me/Realme8Discussion
 
 ## Credits
 - https://github.com/TeamWin
