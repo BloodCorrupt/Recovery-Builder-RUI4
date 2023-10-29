@@ -35,7 +35,7 @@
 
 
 ## Bugs
-- Incorrect Battery Percentage After Decryption
+- Incorrect Battery Percentage After Decryption (Twrp & Pbrp Only)
 - You Tell Me.
 
 ## Device Support Group 
