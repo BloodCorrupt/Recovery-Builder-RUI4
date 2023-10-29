@@ -42,7 +42,7 @@
 - Telegram Community: https://t.me/Realme8Discussion
 
 ## Credits
-- @cd_Crypton
+- https://t.me/cd_Crypton
 - https://github.com/TeamWin
 - https://github.com/minimal-manifest-twrp
 - And to all Contributors in every repositories and scripts I used.
