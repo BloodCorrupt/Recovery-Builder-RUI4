@@ -153,8 +153,8 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: |
-        workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img
-        workspaceout/target/product/${{ github.event.inputs.DEVICE_NAME }}/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PitchBlack*.zip
+                     workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img
+                     workspaceout/target/product/${{ github.event.inputs.DEVICE_NAME }}/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PitchBlack*.zip
         name: Unofficial PBRP for ${{ github.event.inputs.DEVICE_NAME }} - Build ${{ steps.props.outputs.date }} / ${{ github.run_id }}
         tag_name: ${{ github.run_id }}
         body: |
