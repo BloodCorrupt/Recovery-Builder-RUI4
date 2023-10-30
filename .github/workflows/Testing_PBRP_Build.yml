@@ -154,8 +154,8 @@ jobs:
          mkdir -p flashable_recovery/TWRP
          cp workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img flashable_recovery/TWRP/
 
-         mkdir -p flashable_recovery/module/META-INF/com/google/android/
-         cp -r ${{ github.event.inputs.DEVICE_PATH }}/module/META-INF/com/google/android/* flashable_recovery/module/META-INF/com/google/android/
+         mkdir -p flashable_recovery/module/META-INF/
+         cp -r ${{ github.event.inputs.DEVICE_PATH }}/module/META-INF/* flashable_recovery/module/META-INF/
          cp -r ${{ github.event.inputs.DEVICE_PATH }}/PBRP/tools/ flashable_recovery/PBRP/
          
          cd flashable_recovery
