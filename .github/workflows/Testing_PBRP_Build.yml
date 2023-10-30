@@ -62,19 +62,18 @@ jobs:
         echo "Build Target: ${{ github.event.inputs.BUILD_TARGET }}.img"
         echo "::endgroup::"
  
-    # You might want to Checkout your repo first, but not mandatory
     - name: Check Out
       uses: actions/checkout@v3
-    # Cleanup The Actions Workspace Using Custom Composite Run Actions
+    
     - name: Cleanup
       uses: rokibhasansagar/slimhub_actions@main
-      # That's it! Now use your normal steps
 
     - name: Prepare the environment
       run: |
         sudo apt update
         sudo apt -y upgrade
         sudo apt -y install gperf gcc-multilib gcc-10-multilib g++-multilib g++-10-multilib libc6-dev lib32ncurses5-dev x11proto-core-dev libx11-dev tree lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc bc ccache lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-gtk3-dev libxml2 lzop pngcrush schedtool squashfs-tools imagemagick libbz2-dev lzma ncftp qemu-user-static libstdc++-10-dev libncurses5 python3
+
     - name: Install OpenJDK
       uses: actions/setup-java@v3
       with:
@@ -150,24 +149,21 @@ jobs:
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
     - name: Clone Module Files
-  run: |
-    mkdir -p flashable_recovery/module
-    git clone --depth 1 --branch 33b2bf3a224173cec956840241de9bce0c6007b7 https://github.com/RipperHybrid/Twrp_Tree.git flashable_recovery/module
-  working-directory: ${{ steps.pwd.outputs.workspace-folder }}
+      run: |
+        mkdir -p flashable_recovery/module
+        git clone --depth 1 --branch 33b2bf3a224173cec956840241de9bce0c6007b7 https://github.com/RipperHybrid/Twrp_Tree.git flashable_recovery/module
+      working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
-- name: Copy Recovery Image to TWRP Folder
-  run: |
-    cp workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img flashable_recovery/module/twrp/
-  working-directory: ${{ steps.pwd.outputs.workspace-folder }}
+    - name: Copy Recovery Image to TWRP Folder
+      run: |
+       cp workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img flashable_recovery/module/twrp/
+      working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
-- name: Prepare Flashable Recovery
-  run: |
-    cd flashable_recovery
-    zip -r ../UNOFFICIAL_PBRP_FOR_RMX3085-$(date +"%Y%m%d").zip .
-  working-directory: ${{ steps.pwd.outputs.workspace-folder }}
-
-          cd ..
-          working-directory: ${{ steps.pwd.outputs.workspace-folder }}
+    - name: Prepare Flashable Recovery
+      run: |
+       cd flashable_recovery
+       zip -r ../UNOFFICIAL_PBRP_FOR_RMX3085-$(date +"%Y%m%d").zip .
+      working-directory: ${{ steps.pwd.outputs.workspace-folder }}
   
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
