@@ -151,16 +151,18 @@ jobs:
 
     - name: Prepare Flashable Recovery
       run: |
-       mkdir -p flashable_recovery/module/META-INF/com/google/android/
-       cp -r ${{ github.event.inputs.DEVICE_PATH }}/module/META-INF/com/google/android/* flashable_recovery/module/META-INF/com/google/android/
-       cp -r ${{ github.event.inputs.DEVICE_PATH }}/pbrp/tools/ flashable_recovery/
-       cp -r ${{ github.event.inputs.DEVICE_PATH }}/magiskboot flashable_recovery/
+         mkdir -p flashable_recovery/TWRP
+         cp workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img flashable_recovery/TWRP/
 
-       cd flashable_recovery
-       zip -r ../UNOFFICIAL_PBRP_FOR_RMX3085-$(date +"%Y%m%d").zip .
+         mkdir -p flashable_recovery/module/META-INF/com/google/android/
+         cp -r ${{ github.event.inputs.DEVICE_PATH }}/module/META-INF/com/google/android/* flashable_recovery/module/META-INF/com/google/android/
+         cp -r ${{ github.event.inputs.DEVICE_PATH }}/PBRP/tools/ flashable_recovery/PBRP/
+         
+         cd flashable_recovery
+         zip -r ../UNOFFICIAL_PBRP_FOR_RMX3085-$(date +"%Y%m%d").zip .
 
-       cd ..
-       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
+          cd ..
+          working-directory: ${{ steps.pwd.outputs.workspace-folder }}
   
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
