@@ -148,13 +148,26 @@ jobs:
         export ALLOW_MISSING_DEPENDENCIES=true
         lunch ${{ github.event.inputs.MAKEFILE_NAME }}-eng && make clean && mka pbrp -j$(nproc --all)
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
-       
+
+    - name: Prepare Flashable Recovery
+      run: |
+       mkdir -p flashable_recovery/module/META-INF/com/google/android/
+       cp -r ${{ github.event.inputs.DEVICE_PATH }}/module/META-INF/com/google/android/* flashable_recovery/module/META-INF/com/google/android/
+       cp -r ${{ github.event.inputs.DEVICE_PATH }}/pbrp/tools/ flashable_recovery/
+       cp -r ${{ github.event.inputs.DEVICE_PATH }}/magiskboot flashable_recovery/
+
+       cd flashable_recovery
+       zip -r ../UNOFFICIAL_PBRP_FOR_RMX3085-$(date +"%Y%m%d").zip .
+
+       cd ..
+       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
+  
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
         files: |
                      workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img
-                     workspaceout/target/product/${{ github.event.inputs.DEVICE_NAME }}/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP*.zip
+                     workspaceout/target/product/${{ github.event.inputs.DEVICE_NAME }}/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/*.zip
         name: Testing PBRP for ${{ github.event.inputs.DEVICE_NAME }} - Build ${{ steps.props.outputs.date }} / ${{ github.run_id }}
         tag_name: ${{ github.run_id }}
         body: |
