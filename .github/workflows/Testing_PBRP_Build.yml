@@ -154,7 +154,7 @@ jobs:
       with:
         files: |
                      workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img
-                     workspaceout/target/product/${{ github.event.inputs.DEVICE_NAME }}/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP*-UNOFFICIAL.zip
+                     workspaceout/target/product/${{ github.event.inputs.DEVICE_NAME }}/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP*.zip
         name: Testing PBRP for ${{ github.event.inputs.DEVICE_NAME }} - Build ${{ steps.props.outputs.date }} / ${{ github.run_id }}
         tag_name: ${{ github.run_id }}
         body: |
