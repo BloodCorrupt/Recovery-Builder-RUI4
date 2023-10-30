@@ -149,17 +149,22 @@ jobs:
         lunch ${{ github.event.inputs.MAKEFILE_NAME }}-eng && make clean && mka pbrp -j$(nproc --all)
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
-    - name: Prepare Flashable Recovery
-      run: |
-         mkdir -p flashable_recovery/TWRP
-         cp workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img flashable_recovery/TWRP/
+    - name: Clone Module Files
+  run: |
+    mkdir -p flashable_recovery/module
+    git clone --depth 1 --branch 33b2bf3a224173cec956840241de9bce0c6007b7 https://github.com/RipperHybrid/Twrp_Tree.git flashable_recovery/module
+  working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
-         mkdir -p flashable_recovery/module/META-INF/
-         cp -r ${{ github.event.inputs.DEVICE_PATH }}/module/META-INF/* flashable_recovery/module/META-INF/
-         cp -r ${{ github.event.inputs.DEVICE_PATH }}/PBRP/tools/ flashable_recovery/PBRP/
-         
-         cd flashable_recovery
-         zip -r ../UNOFFICIAL_PBRP_FOR_RMX3085-$(date +"%Y%m%d").zip .
+- name: Copy Recovery Image to TWRP Folder
+  run: |
+    cp workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img flashable_recovery/module/twrp/
+  working-directory: ${{ steps.pwd.outputs.workspace-folder }}
+
+- name: Prepare Flashable Recovery
+  run: |
+    cd flashable_recovery
+    zip -r ../UNOFFICIAL_PBRP_FOR_RMX3085-$(date +"%Y%m%d").zip .
+  working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
           cd ..
           working-directory: ${{ steps.pwd.outputs.workspace-folder }}
