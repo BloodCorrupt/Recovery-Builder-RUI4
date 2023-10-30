@@ -28,6 +28,10 @@
 - Incorrect Battery Percentage After Decryption (Twrp & Pbrp Only)
 - You Tell Me.
 
+##  Notes
+- This Builder Is For RUI4 Recovery.
+- Loking For Rui3 Builds? [Here].(https://github.com/RipperHybrid/Recovery-Builder-RUI3.git).
+
 ## Device Support Group 
 - Telegram Community: https://t.me/Realme8Discussion
 
