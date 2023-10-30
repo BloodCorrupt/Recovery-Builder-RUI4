@@ -30,7 +30,7 @@
 
 ##  Notes
 - This Builder Is For RUI4 Recovery.
-- Loking For Rui3 Builds? [Here].(https://github.com/RipperHybrid/Recovery-Builder-RUI3.git).
+- Loking For Rui3 Builds? [Here](https://github.com/RipperHybrid/Recovery-Builder-RUI3.git).
 
 ## Device Support Group 
 - Telegram Community: https://t.me/Realme8Discussion
