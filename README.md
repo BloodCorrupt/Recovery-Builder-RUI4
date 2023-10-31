@@ -31,7 +31,7 @@
 ##  Notes
 - This Builder Is For RUI4 Recovery.
 - Recovery Trees [Here](https://github.com/RipperHybrid/Twrp_Tree.git).
-- Loking For Rui3 Builds? [Here](https://github.com/RipperHybrid/Recovery-Builder-RUI3.git).
+- Looking For Rui3 Builds? [Here](https://github.com/RipperHybrid/Recovery-Builder-RUI3.git).
 
 ## Device Support Group 
 - Telegram Community: https://t.me/Realme8Discussion
