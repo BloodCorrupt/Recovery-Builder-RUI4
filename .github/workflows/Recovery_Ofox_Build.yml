@@ -140,3 +140,6 @@ jobs:
         body: |
           Build: fox_${{ github.event.inputs.MANIFEST_BRANCH }}
           Device: ${{ github.event.inputs.DEVICE_TREE }}/tree/${{ github.event.inputs.DEVICE_TREE_BRANCH }}
+          Build Date: ${{ env.BUILD_DATE }}
+          Build Time: ${{ env.BUILD_TIME }}
+        
