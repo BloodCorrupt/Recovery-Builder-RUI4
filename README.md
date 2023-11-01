@@ -15,19 +15,6 @@
 
 - Click Run workflow, and wait 'til done.
 
-## Working Feature
-- Decryption Data (Thanks [Howwof](https://t.me/@HowWof))
-- Vibration/Haptic 
-- Flashing .img/zip
-- ADB Sideload
-- Terminal/Console
-- External Storage (SD and OTG)
-
-
-## Bugs
-- Incorrect Battery Percentage After Decryption (Twrp & Pbrp Only)
-- You Tell Me.
-
 ##  Notes
 - This Builder Is For RUI4 Recovery.
 - Recovery Trees [Here](https://github.com/RipperHybrid/Twrp_Tree.git).
