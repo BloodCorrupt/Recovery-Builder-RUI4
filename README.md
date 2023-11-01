@@ -34,8 +34,7 @@
 - Looking For Rui3 Builds? [Here](https://github.com/RipperHybrid/Recovery-Builder-RUI3.git).
 
 ## Device Support Group 
-- Telegram Community: https://t.me/Realme8Discussion
-
+- Telegram Community: https://t.me/Realme8AOSPGroup
 ## Credits
 - Thanks [BloodCorruption](https://t.me/@BloodCorruption)
 - https://t.me/cd_Crypton
