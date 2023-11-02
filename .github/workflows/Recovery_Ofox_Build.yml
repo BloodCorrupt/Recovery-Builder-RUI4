@@ -20,11 +20,11 @@ on:
       DEVICE_TREE:
         description: 'Custom Recovery Tree'
         required: true
-        default: 'https://github.com/RipperHybrid/Twrp_Tree'
+        default: 'https://github.com/RipperHybrid/Recovery-tree-nahsc'
       DEVICE_TREE_BRANCH:
         description: 'DEVICE_TREE_BRANCH'
         required: true
-        default: 'OFOX-13'
+        default: 'OFOX-A13'
       DEVICE_PATH:
         description: 'DEVICE_PATH'
         required: true

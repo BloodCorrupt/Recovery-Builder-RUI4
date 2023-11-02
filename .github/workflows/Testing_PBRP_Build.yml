@@ -14,11 +14,11 @@ on:
       DEVICE_TREE_URL:
         description: 'DEVICE_TREE_URL'
         required: true
-        default: 'https://github.com/RipperHybrid/Twrp_Tree'
+        default: 'https://github.com/RipperHybrid/Recovery-tree-nahsc'
       DEVICE_TREE_BRANCH:
         description: 'DEVICE_TREE_BRANCH'
         required: true
-        default: 'PBRP-12'
+        default: 'PBRP-A13'
       DEVICE_PATH:
         description: 'DEVICE_PATH'
         required: true
@@ -151,7 +151,7 @@ jobs:
     - name: Clone Module Files
       run: |
         mkdir -p flashable_recovery/module
-        git clone --depth 1 --branch 33b2bf3a224173cec956840241de9bce0c6007b7 https://github.com/RipperHybrid/Twrp_Tree.git flashable_recovery/module
+        git clone --depth 1 --branch 33b2bf3a224173cec956840241de9bce0c6007b7 https://github.com/RipperHybrid/Recovery-tree-nahsc.git flashable_recovery/module
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
     - name: Copy Recovery Image to TWRP Folder

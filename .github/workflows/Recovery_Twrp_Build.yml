@@ -14,11 +14,11 @@ on:
       DEVICE_TREE_URL:
         description: 'DEVICE_TREE_URL'
         required: true
-        default: 'https://github.com/RipperHybrid/Twrp_Tree'
+        default: 'https://github.com/RipperHybrid/Recovery-tree-nahsc'
       DEVICE_TREE_BRANCH:
         description: 'DEVICE_TREE_BRANCH'
         required: true
-        default: 'android-13'
+        default: 'TWRP-A13'
       DEVICE_PATH:
         description: 'DEVICE_PATH'
         required: true
