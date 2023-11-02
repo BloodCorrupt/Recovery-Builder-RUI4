@@ -149,9 +149,18 @@ jobs:
         lunch ${{ github.event.inputs.MAKEFILE_NAME }}-eng && make clean && make ${{ github.event.inputs.BUILD_TARGET }}image -j$(nproc --all)
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
        
-    - name: Upload Build Artifact
-      uses: actions/upload-artifact@v2
+    - name: Upload to Release
+      uses: softprops/action-gh-release@v1
       with:
-        name: recovery-artifact
-        path: workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img
-
+        files: workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img
+        name: Unofficial PBRP for ${{ github.event.inputs.DEVICE_NAME }} - Build ${{ steps.props.outputs.date }} / ${{ github.run_id }}
+        tag_name: ${{ github.run_id }}
+        body: |
+          Manifest: ${{ github.event.inputs.MANIFEST_BRANCH }}
+          Device: ${{ github.event.inputs.DEVICE_NAME }}
+          Target: ${{ github.event.inputs.BUILD_TARGET }}.img
+           Build Date: ${{ env.BUILD_DATE }}
+           Build Time: ${{ env.BUILD_TIME }}
+           Status: Tested And Working 
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
